@@ -1,0 +1,22 @@
+name: env_BioMeca
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - pip
+  - pyyaml>=6.0
+
+  # --- Calcul Scientifique & Données ---
+  - numpy>=1.24.0
+  - scipy>=1.10.0
+  - pandas>=1.5.0
+  - cloudpickle
+
+  # --- Géospatial & Visualisation ---
+  - matplotlib>=3.7.1
+
+  - pip: 
+    - cupy-cuda12x
+    - mpl_toolkits.mplot3d
