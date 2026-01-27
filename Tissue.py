@@ -2,8 +2,9 @@ import numpy as np
 import string
 
 class Tissue:
-    def __init__(self, name : string,  Center : np.array[float], Radius : float, absoarption_coefficients : dict):
+    def __init__(self, name : string,  Center : np.array[float], Radius : float, absorption_coefficients : float, refractive_index : float):
         self.Center = Center
         self.Radius = Radius
         self.name = name
-        self.absoarption_coefficients = absoarption_coefficients
+        self.absorption_coefficients = absorption_coefficients
+        self.refractive_index = refractive_index

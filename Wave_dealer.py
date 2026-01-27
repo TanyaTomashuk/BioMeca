@@ -4,7 +4,7 @@ import numpy as np
 from Tissue import Tissue
 
 class wave_dealer:
-    def __init__(self, f : float, start_pos : List[float], dephasage : float, Intensity : float, List_Tissue : List[Tissue]):
+    def __init__(self, f : float, start_pos : np.array[float], dephasage : float, Intensity : float, List_Tissue : List[Tissue]):
         self.f = f
         self.start_pos = start_pos
         self.dephasage = dephasage
@@ -58,7 +58,7 @@ class wave_dealer:
         return List_intersect_point + Next_intersect_point
     
 
-    def wave_at_target(self, Target : List[float], meshs : np.array[np.array[float]]):
+    def wave_at_target(self, Target : np.array[float], meshs : np.array[np.array[float]]):
         Intensity = self.Intensity
         dephasage = self.dephasage
 
@@ -66,8 +66,9 @@ class wave_dealer:
 
         for tissue in self.List_Tissue:
             for i in range (0, len(List_distance)-1):
-                if tiss == tissue:
-                    distance = np.linalg.norm(point - self.start_pos)
-                    absorption_coeff = tissue.absoarption_coefficients.Intensity
-                    Intensity = absorption(Intensity, absorption_coeff, distance)
-                    dephasage += 2 * np.pi * self.f * (distance / c)
+                if tissue == tissue:
+                    distance = np.linalg.norm(List_distance[i+1][1] - List_distance[i][1])
+                    absorption_coeff = tissue.absorption_coefficients["Intensity"]
+                    Intensity = Intensity * np.exp(-absorption_coeff * distance)
+                    c = 3e8 / np.sqrt(tissue.absorption_coefficients["refractive_index"])
+                    dephasage += 2 * np.pi * self.f * (distance / c) % (2 * np.pi)
