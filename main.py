@@ -7,6 +7,7 @@ from scipy.optimize import differential_evolution
 from scipy.sparse import lil_matrix, csr_matrix
 from Tissue import Tissue
 from meshing_2d import Mesh2D
+from efficiency import compute_efficiency_2d
 import Physique
 
 # --- Fonction de coût picklable (module-level requis par multiprocessing) ---
