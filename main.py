@@ -563,9 +563,9 @@ class BioMecaController:
 controller = BioMecaController()
 
 # Tissus concentriques  (optique : mu_a [m⁻¹], n_r ; thermique : rho [kg/m³], cp [J/kg/K], k [W/m/K])
-controller.add_tissue("skull", [0, 0, 0],        0.19, 0.0118, 1.4, density=1900.0, specific_heat=1300.0, thermal_conductivity=0.40 * 10)
-controller.add_tissue("brain", [0, 0, 0],        0.12, 0.0041, 1.4, density=1040.0, specific_heat=3700.0, thermal_conductivity=0.50 * 10)
-controller.add_tissue("tumor", [0.03, 0.03, 0],  0.02, 0.0200, 1.4, density=1050.0, specific_heat=3800.0, thermal_conductivity=0.55 * 10)
+controller.add_tissue("skull", [0, 0, 0],        0.019, 0.0118, 1.4, density=1908.0, specific_heat=1313.0, thermal_conductivity=0.32)
+controller.add_tissue("brain", [0, 0, 0],        0.012, 0.0041, 1.4, density=1040.0, specific_heat=3250.0, thermal_conductivity=0.51)
+controller.add_tissue("tumor", [0.03, 0.03, 0],  0.002, 0.0200, 1.4, density=1040.0, specific_heat=3250.0, thermal_conductivity=0.51)
 
 # Maillage 2D
 mesh_2d = controller.create_mesh_2d(N=6000)
